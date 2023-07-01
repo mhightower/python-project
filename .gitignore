@@ -1,0 +1,23 @@
+# Python-specific
+*.pyc
+*.pyo
+__pycache__/
+*.py[cod]
+
+# Virtual Environment
+.venv/
+env/
+
+# IDE-specific
+.vscode/
+.idea/
+
+# Editor-specific
+*.swp
+*~
+
+# macOS-specific
+.DS_Store
+
+# Windows-specific
+Thumbs.db
