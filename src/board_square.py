@@ -5,12 +5,12 @@ from dataclasses import dataclass
 class BoardSquare:
     '''Represents a game board square'''
 
-    id: int
+    index: int
     coordinate_x: int
     coordinate_y: int
 
     def is_before(self, other):
-        return bool(self.id < other.id)
+        return bool(self.index < other.index)
 
     def is_after(self, other):
-        return bool(self.id > other.id)
+        return bool(self.index > other.index)

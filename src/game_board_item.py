@@ -5,5 +5,9 @@ class GameBoardItem(ABC):
     label = ''
 
     @abstractmethod
-    def get_id(self) -> str:
+    def get_label(self) -> str:
+        pass
+
+    @abstractmethod
+    def is_start(self) -> bool:
         pass
