@@ -4,10 +4,12 @@ from src.player import Player
 from src.rollable import Rollable
 from src.player_winner import Winner
 from src.game_board import GameBoard
+from src.exceptions.draw_game import Draw
 
 
 class Game:
     MAX_INDEX = 100
+    MAX_ROLLS = 2000
     winner = None
     board: GameBoard
 
@@ -19,16 +21,9 @@ class Game:
         self.board = board
         # Set Players to beginning square
         current_square = dict.fromkeys(self.players, 1)
-        # In a loop
-        # foreach  player
-        # roll the dice
-        # add number to current square to get new square
-        # if square 100 this player is the winner game stops
-        # if Ladder.start get end square
-        #        if square 100 this player is the winner game stops
-        # if chute.start get end square
-        # go to next player
+        self.__a_check = 0
         while True:
+            self.__a_check += 1
             for player in self.players:
                 player_move = self.rollable.roll()
                 new_square = player_move + current_square.get(player)
@@ -51,4 +46,6 @@ class Game:
                     break
             if isinstance(self.winner, Winner):
                 break
-        return Winner(self.winner)  # The key that value equals 100
+            if self.__a_check >= self.MAX_ROLLS:
+                raise Draw('Game ended in a draw: %s' % current_square.__str__()) 
+        return self.winner  # The key that value equals 100
