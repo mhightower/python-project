@@ -15,7 +15,8 @@ class BoardReader:
 
     def __process_board_config(self, input):
         for sublist in input:
-            sublist = sublist[:-1]
+            if len(sublist) > 10:
+                sublist = sublist[:-1]
             if input.line_num % 2 == 1:
                 sublist.reverse()
                 self.board = sublist + self.board
