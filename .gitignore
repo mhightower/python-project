@@ -4,6 +4,10 @@
 __pycache__/
 *.py[cod]
 
+#Pytest code coverage
+coverage.xml
+.coverage
+
 # Virtual Environment
 .venv/
 env/
