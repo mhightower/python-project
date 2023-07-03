@@ -14,6 +14,9 @@ python = "^3.8"
 pytest = "^7.4.0"
 pytest-xdist = "^3.3.1"
 
+[tool.pytest.ini_options]
+addopts="-n 4"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
