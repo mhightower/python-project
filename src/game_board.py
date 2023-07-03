@@ -19,7 +19,7 @@ class GameBoard:
         for index, value in enumerate(board_output):
             index += 1
             if value == '' or value.isnumeric():
-                self.board.append(BoardSquare(index, 1, 1))  # TODO Broke
+                self.board.append(BoardSquare(index))
             elif value[0] == 'L':
                 list_of_squares = [i for i, square in enumerate(self.board_output) if square == value]
                 if len(list_of_squares) == 2:
@@ -27,8 +27,8 @@ class GameBoard:
                     ladder_end = list_of_squares[1] + 1
                     self.board.append(Ladder(index,
                                              value,
-                                             BoardSquare(ladder_start, 1, 1),
-                                             BoardSquare(ladder_end, 0, 0)
+                                             BoardSquare(ladder_start),
+                                             BoardSquare(ladder_end)
                                             )
                                     )
                 else:
@@ -40,8 +40,8 @@ class GameBoard:
                     chute_start = list_of_squares[1] + 1
                     self.board.append(Chute(index,
                                             value,
-                                            BoardSquare(chute_start, 1, 1),
-                                            BoardSquare(chute_end, 0, 0)
+                                            BoardSquare(chute_start),
+                                            BoardSquare(chute_end)
                                             )
                                      )
                 else:
