@@ -25,11 +25,15 @@ def test_create_game():
     assert isinstance(chutes_and_ladders, Game)
 
 
-def test_play_game_board1():
-    player01 = Player(10)
-    player02 = Player(20)
-    player03 = Player(30)
-    chutes_and_ladders = Game([player01, player02, player03], game_dice(
+def test_play_game_board1(player_list):
+    chutes_and_ladders = Game(player_list, game_dice(
+        four_sided_die(), six_sided_die()))
+    board_reader = BoardReader('data/boards/board1.csv')
+    winner = chutes_and_ladders.play(board_reader.get_board())
+    assert isinstance(winner, Winner)
+
+def test_play_game_board1_four_players(player_list_plus):
+    chutes_and_ladders = Game(player_list_plus, game_dice(
         four_sided_die(), six_sided_die()))
     board_reader = BoardReader('data/boards/board1.csv')
     winner = chutes_and_ladders.play(board_reader.get_board())
@@ -39,5 +43,12 @@ def test_play_game_board2(player_list):
     chutes_and_ladders = Game(player_list, game_dice(
         four_sided_die(), six_sided_die()))
     board_reader = BoardReader('data/boards/board2.csv')
+    winner = chutes_and_ladders.play(board_reader.get_board())
+    assert isinstance(winner, Winner)
+
+def test_play_game_board3(player_list):
+    chutes_and_ladders = Game(player_list, game_dice(
+        four_sided_die(), six_sided_die()))
+    board_reader = BoardReader('data/boards/board3.csv')
     winner = chutes_and_ladders.play(board_reader.get_board())
     assert isinstance(winner, Winner)
