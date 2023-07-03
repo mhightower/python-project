@@ -7,12 +7,12 @@ from src.exceptions.misconfigure import Misconfigure
 
 @pytest.fixture
 def chute_start_square_20():
-    return BoardSquare(20, 2, 2)
+    return BoardSquare(20)
 
 
 @pytest.fixture
 def chute_end_square_10():
-    return BoardSquare(10, 10, 1)
+    return BoardSquare(10)
 
 
 @pytest.fixture

@@ -6,8 +6,6 @@ class BoardSquare:
     '''Represents a game board square'''
 
     index: int
-    coordinate_x: int
-    coordinate_y: int
 
     def is_before(self, other):
         return bool(self.index < other.index)

@@ -6,12 +6,12 @@ from src.exceptions.misconfigure import Misconfigure
 
 @pytest.fixture
 def ladder_start_square_10():
-    return BoardSquare(10, 1, 10)
+    return BoardSquare(10)
 
 
 @pytest.fixture
 def ladder_end_square_20():
-    return BoardSquare(20, 2, 2)
+    return BoardSquare(20)
 
 
 @pytest.fixture
